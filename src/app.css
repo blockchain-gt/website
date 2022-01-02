@@ -1,0 +1,15 @@
+/* Write your global styles here, in PostCSS syntax */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#svelte {
+	width: 100%;
+	height: 100%;
+}
+
+h1.page-title {
+	@apply font-bold text-4xl;
+}
