@@ -2,7 +2,7 @@
 	import type { SidebarSection, Result } from './types/prismic';
 	export let sections: Result<SidebarSection>[];
 	import PrismicDOM from 'prismic-dom';
-	import LinkResolver from './prismic/linkResolver';
+	import linkResolver from './prismic/linkResolver';
 </script>
 
 <div class="w-full p-8 pt-16 m-4">
@@ -11,7 +11,7 @@
 		<div class="mb-6">
 			{#each section.data.links as link}
 				<div class="my-2">
-					<a href={PrismicDOM.Link.url(link.url, LinkResolver)}>
+					<a href={PrismicDOM.Link.url(link.url, linkResolver)}>
 						{link.link_title}
 					</a>
 				</div>
