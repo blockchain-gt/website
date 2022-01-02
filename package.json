@@ -33,6 +33,7 @@
 	"type": "module",
 	"dependencies": {
 		"@prismicio/client": "^5.1.0",
+		"@tailwindcss/forms": "^0.4.0",
 		"prismic-dom": "^2.2.6"
 	}
 }

@@ -25,4 +25,8 @@
 	<div class="prose my-8">
 		{@html PrismicDOM.RichText.asHtml(page.body)}
 	</div>
+	<form action="" on:submit|preventDefault>
+		<input type="text" /> <br />
+		<button class="p-4 bg-gray-200">Submit</button>
+	</form>
 </div>
