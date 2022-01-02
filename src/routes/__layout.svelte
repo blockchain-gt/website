@@ -9,8 +9,6 @@
 			pageSize: 10
 		});
 
-		console.log(sections.results);
-
 		return {
 			props: {
 				sections: sections.results as Result<SidebarSection>[]
@@ -27,6 +25,7 @@
 </script>
 
 <div class="flex flex-row w-full h-screen overflow-hidden">
+	<div class="absolute top-0 left-0 w-screen h-20 -z-20">this is for threejs</div>
 	<div class="w-56 h-full flex-none">
 		<Sidebar {sections} />
 	</div>

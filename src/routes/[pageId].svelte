@@ -17,13 +17,11 @@
 <script lang="ts">
 	export let pageResult: Result<any>;
 	$: page = pageResult ? pageResult.data : {};
-
-	console.log(PrismicDOM);
 </script>
 
 <div>
 	{#if page}
-		<h1 class="page-title">{page.title[0].text}</h1>
+		<h1 class="page-title">{PrismicDOM.RichText.asText(page.title)}</h1>
 		<div class="prose my-8">
 			{@html PrismicDOM.RichText.asHtml(page.content)}
 		</div>
