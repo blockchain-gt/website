@@ -36,17 +36,20 @@
 	<div class="prose my-8">
 		{@html PrismicDOM.RichText.asHtml(page.body)}
 	</div>
-	<div class="flex flex-wrap space-x-8">
+	<div class="flex flex-wrap space-x-8 ml-2">
 		{#each newsletters as newsletter}
 			<NewsletterPreview {newsletter} />
 		{/each}
 	</div>
-	{#each newsletters as newsletter}
-		<a
-			href="/newsletters/{newsletter.uid}"
-			class="block my-2 antialiased underline text-gray-600 font-medium"
-		>
-			{PrismicDOM.RichText.asText(newsletter.data.title)}
-		</a>
-	{/each}
+	<h2 class="page-subtitle mt-16 mb-6">Archive</h2>
+	<div class="space-y-3">
+		{#each newsletters as newsletter}
+			<a
+				href="/newsletters/{newsletter.uid}"
+				class="block antialiased underline text-gray-600 font-medium"
+			>
+				{PrismicDOM.RichText.asText(newsletter.data.title)}
+			</a>
+		{/each}
+	</div>
 </div>

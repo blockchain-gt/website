@@ -12,7 +12,7 @@ const config = {
 				xl: '0px 4px 60px rgba(0, 0, 0, 0.1)'
 			},
 			colors: {
-				primary: '#263B71'
+				primary: '#182552'
 			}
 		}
 	},

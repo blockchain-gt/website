@@ -29,7 +29,7 @@
 	<title>{$page.url.pathname.substring(1) || 'Home'} - Blockchain at Georgia Tech</title>
 </svelte:head>
 
-<div class="flex flex-row w-full h-screen overflow-hidden">
+<div class="flex flex-row w-full h-screen overflow-hidden max-w-screen-xl mx-auto">
 	<div class="absolute top-0 left-0 w-screen -z-20 h-32 overflow-hidden">
 		<div class="absolute bg-gradient-to-t from-white to-[#ffffff00] w-full h-full" />
 		<div class="w-full h-full" id="top" />

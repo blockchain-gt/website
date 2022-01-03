@@ -28,8 +28,10 @@
 
 <div>
 	{#if page}
-		<h3 class="uppercase font-bold text-xs mb-2">January 2022 Edition • Author Name</h3>
-		<h1 class="page-title !text-5xl">{pageTitle}</h1>
+		<h3 class="uppercase font-bold text-xs mb-2 text-primary">January 2 2022 • Author Name</h3>
+		<h1 class="page-title !text-5xl max-w-xl">
+			{pageTitle}
+		</h1>
 		<!-- <a href="" class="text-gray-400 underline font-semibold">Download as a PDF</a> -->
 		<div class="prose my-8">
 			{@html PrismicDOM.RichText.asHtml(page.content)}

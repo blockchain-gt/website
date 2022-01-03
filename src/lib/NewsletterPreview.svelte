@@ -2,14 +2,12 @@
 	import type { Newsletter, Result } from './types/prismic';
 	export let newsletter: Result<Newsletter>;
 	import PrismicDOM from 'prismic-dom';
-	console.log(newsletter);
-	console.log(newsletter.data.summary[0].text ? newsletter.data.summary : newsletter.data.content);
 </script>
 
 <div
 	class="
 shadow-md hover:shadow-xl ease-in transition-shadow cursor-pointer rounded-lg
-overflow-hidden w-[22rem]
+overflow-hidden w-[22rem] will-change-auto
 "
 >
 	<a href="/newsletters/{newsletter.uid}">
