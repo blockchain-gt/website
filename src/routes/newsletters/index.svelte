@@ -1,7 +1,6 @@
 <script context="module" lang="ts">
 	import Client from '$lib/prismic/client';
-	import linkResolver from '$lib/prismic/linkResolver';
-	import type { Result } from '$lib/types/prismic';
+	import type { Newsletter, Result } from '$lib/types/prismic';
 	import PrismicDOM from 'prismic-dom';
 	import Prismic from '@prismicio/client';
 
@@ -23,8 +22,10 @@
 </script>
 
 <script lang="ts">
+	import NewsletterPreview from '$lib/NewsletterPreview.svelte';
+
 	export let pageResult: Result<any>;
-	export let newslettersResult: Result<any>[];
+	export let newslettersResult: Result<Newsletter>[];
 
 	let page = pageResult.data;
 	let newsletters = newslettersResult;
@@ -35,8 +36,16 @@
 	<div class="prose my-8">
 		{@html PrismicDOM.RichText.asHtml(page.body)}
 	</div>
+	<div class="flex flex-wrap space-x-8">
+		{#each newsletters as newsletter}
+			<NewsletterPreview {newsletter} />
+		{/each}
+	</div>
 	{#each newsletters as newsletter}
-		<a href="/newsletters/{newsletter.uid}" class="underline text-gray-600 font-medium">
+		<a
+			href="/newsletters/{newsletter.uid}"
+			class="block my-2 antialiased underline text-gray-600 font-medium"
+		>
 			{PrismicDOM.RichText.asText(newsletter.data.title)}
 		</a>
 	{/each}

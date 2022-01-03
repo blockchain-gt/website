@@ -2,7 +2,6 @@
 	import EventPreview from '$lib/EventPreview.svelte';
 
 	import Client from '$lib/prismic/client';
-	import linkResolver from '$lib/prismic/linkResolver';
 	import type { Result } from '$lib/types/prismic';
 	import PrismicDOM from 'prismic-dom';
 

@@ -19,8 +19,14 @@ export interface SidebarSection {
 	links: Link[];
 }
 
-// export interface Page {}
-
+export interface Newsletter {
+	title: string;
+	content: any;
+	date: string;
+	tags: any[];
+	header_image: any;
+	summary: any;
+}
 interface Link {
 	link_title: string;
 	url: Url;

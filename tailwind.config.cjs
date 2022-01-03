@@ -7,7 +7,12 @@ const config = {
 	theme: {
 		extend: {
 			boxShadow: {
-				lg: '0px 4px 40px rgba(0, 0, 0, 0.08)'
+				md: '0px 4px 30px rgba(0, 0, 0, 0.05)',
+				lg: '0px 4px 30px rgba(0, 0, 0, 0.08)',
+				xl: '0px 4px 60px rgba(0, 0, 0, 0.1)'
+			},
+			colors: {
+				primary: '#263B71'
 			}
 		}
 	},

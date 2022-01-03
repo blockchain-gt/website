@@ -20,12 +20,21 @@
 <script lang="ts">
 	import '../app.css';
 	import Sidebar from '$lib/Sidebar.svelte';
+	import { page } from '$app/stores';
 
 	export let sections: Result<SidebarSection>[];
 </script>
 
+<svelte:head>
+	<title>{$page.url.pathname.substring(1) || 'Home'} - Blockchain at Georgia Tech</title>
+</svelte:head>
+
 <div class="flex flex-row w-full h-screen overflow-hidden">
-	<div class="absolute top-0 left-0 w-screen h-20 -z-20">this is for threejs</div>
+	<div class="absolute top-0 left-0 w-screen -z-20 h-32 overflow-hidden">
+		<div class="absolute bg-gradient-to-t from-white to-[#ffffff00] w-full h-full" />
+		<div class="w-full h-full" id="top" />
+		<!-- bg-gradient-to-t from-white to-[#ffffff00] -->
+	</div>
 	<div class="w-56 h-full flex-none">
 		<Sidebar {sections} />
 	</div>

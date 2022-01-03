@@ -26,7 +26,28 @@
 		{@html PrismicDOM.RichText.asHtml(page.body)}
 	</div>
 	<form action="" on:submit|preventDefault>
-		<input type="text" /> <br />
-		<button class="p-4 bg-gray-200">Submit</button>
+		<div class="grid grid-cols-1 gap-6 max-w-md">
+			<label class="block">
+				<span class="text-gray-700">Full Name</span>
+				<input
+					type="text"
+					class="mt-1 block w-full placeholder:text-gray-400 font-light"
+					placeholder="Satoshi Nakamoto"
+				/>
+			</label>
+			<label class="block">
+				<span class="text-gray-700">Email Address</span>
+				<input
+					type="text"
+					class="mt-1 block w-full placeholder:text-gray-400 font-light"
+					placeholder="satoshi@nakamoto.com"
+				/>
+			</label>
+			<label class="block">
+				<span class="text-gray-700">Message</span>
+				<textarea class="mt-1 block w-full" rows="3" />
+			</label>
+			<button class="p-4 bg-gray-100 rounded-sm">Submit</button>
+		</div>
 	</form>
 </div>
