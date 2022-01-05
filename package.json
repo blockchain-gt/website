@@ -34,6 +34,7 @@
 	"type": "module",
 	"dependencies": {
 		"@prismicio/client": "^5.1.0",
+		"@sveltejs/adapter-static": "^1.0.0-next.24",
 		"@tailwindcss/forms": "^0.4.0",
 		"pixi.js": "^6.2.1",
 		"prismic-dom": "^2.2.6"

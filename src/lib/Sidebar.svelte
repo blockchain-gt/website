@@ -9,12 +9,13 @@
 </script>
 
 <div class="w-full p-8 pt-16 m-4">
-	<h4 class="font-bold mb-4"><a href="/">Blockchain @ GT</a></h4>
+	<h4 class="font-bold mb-4"><a sveltekit:prefetch href="/">Blockchain @ GT</a></h4>
 
 	{#each sections.sort((a, b) => a.data.order - b.data.order) as section}
 		<div class="mb-6">
 			{#each section.data.links as link}
 				<a
+					sveltekit:prefetch
 					class="my-2 p-1.5 px-2.5 rounded-md block {w &&
 					PrismicDOM.Link.url(link.url, linkResolver) === w.location.pathname
 						? 'bg-gray-100'

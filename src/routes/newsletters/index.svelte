@@ -36,7 +36,7 @@
 	<div class="prose my-8">
 		{@html PrismicDOM.RichText.asHtml(page.body)}
 	</div>
-	<div class="flex flex-wrap space-x-8 ml-2">
+	<div class="flex flex-wrap space-x-8 ml-3">
 		{#each newsletters as newsletter}
 			<NewsletterPreview {newsletter} />
 		{/each}
@@ -45,6 +45,7 @@
 	<div class="space-y-3">
 		{#each newsletters as newsletter}
 			<a
+				sveltekit:prefetch
 				href="/newsletters/{newsletter.uid}"
 				class="block antialiased underline text-gray-600 font-medium"
 			>
