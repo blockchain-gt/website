@@ -2,6 +2,7 @@
 	import Client from '$lib/prismic/client';
 	import type { Newsletter, Result } from '$lib/types/prismic';
 
+	import PrismicDOM from 'prismic-dom';
 	import Prismic from '@prismicio/client';
 
 	export const load = async ({ params }) => {
@@ -9,13 +10,23 @@
 		const newslettersPromise = Client.query(Prismic.Predicates.at('document.type', 'newsletter'), {
 			pageSize: 10
 		});
+		const eventsPromise = Client.query(Prismic.Predicates.at('document.type', 'event'), {
+			pageSize: 10
+		});
 
-		const [page, newsletters] = await Promise.all([pagePromise, newslettersPromise]);
+		const [page, newsletters, events] = await Promise.all([
+			pagePromise,
+			newslettersPromise,
+			eventsPromise
+		]);
 
 		return {
 			props: {
 				pageResult: page,
-				newslettersResult: newsletters.results
+				newslettersResult: newsletters.results,
+				eventsResult: events.results.filter(
+					(event) => PrismicDOM.Date(event.data.date).getTime() > Date.now()
+				)
 			}
 		};
 	};
@@ -23,8 +34,11 @@
 
 <script lang="ts">
 	import NewsletterPreview from '$lib/NewsletterPreview.svelte';
+	import type { Event } from '$lib/types/prismic';
+	import EventPreview from '$lib/EventPreview.svelte';
 
 	export let newslettersResult: Result<Newsletter>[];
+	export let eventsResult: Result<Event>[];
 </script>
 
 <div>
@@ -39,5 +53,10 @@
 	</div>
 	<div class="mt-4 mb-8">
 		<h2 class="page-subtitle">Upcoming Events</h2>
+		<div class="flex flex-row flex-wrap space-x-8 mt-4 mb-8">
+			{#each eventsResult as upcomingEvent}
+				<EventPreview event={upcomingEvent.data} />
+			{/each}
+		</div>
 	</div>
 </div>

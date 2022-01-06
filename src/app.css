@@ -17,3 +17,10 @@ h1.page-title {
 h2.page-subtitle {
 	@apply font-bold text-2xl;
 }
+
+.tsparticles,
+canvas {
+	z-index: -50;
+	/* amount of 32 tailwind units */
+	max-height: 8rem !important;
+}

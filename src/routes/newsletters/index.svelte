@@ -4,6 +4,8 @@
 	import PrismicDOM from 'prismic-dom';
 	import Prismic from '@prismicio/client';
 
+	export const prerender = true;
+
 	export const load = async ({ params }) => {
 		const pagePromise = Client.getSingle('newsletter_home', {});
 		const newslettersPromise = Client.query(Prismic.Predicates.at('document.type', 'newsletter'), {

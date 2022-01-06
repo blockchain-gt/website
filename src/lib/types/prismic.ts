@@ -19,6 +19,15 @@ export interface SidebarSection {
 	links: Link[];
 }
 
+export interface Event {
+	uid: string;
+	title: string;
+	body: any;
+	date: string;
+	tags: string[];
+	location: string;
+}
+
 export interface Newsletter {
 	title: string;
 	content: any;
