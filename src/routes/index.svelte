@@ -59,4 +59,31 @@
 			{/each}
 		</div>
 	</div>
+	<div class="mt-4 mb-8">
+		<h2 class="page-subtitle">Our Services</h2>
+		<div class="grid grid-cols-2 gap-8 mt-4 mb-8">
+			<div
+				class="shadow-md p-8 rounded-lg hover:shadow-xl ease-in transition-shadow cursor-pointer"
+			>
+				<h3 class=" text-primary text-xl font-semibold mb-2">For Students</h3>
+				<p class=" leading-snug">
+					Our services lorem ipsum dolor sit amte lorem ipsum dolor sit amtelorem ipsum dolor sit
+					amtelorem ipsum dolor sit amte
+				</p>
+			</div>
+			<div
+				class="shadow-md p-8 rounded-lg hover:shadow-xl ease-in transition-shadow cursor-pointer"
+			>
+				<h3 class="text-primary text-xl font-semibold mb-2">For Companies</h3>
+				<p class="leading-snug">
+					Our services lorem ipsum dolor sit amte lorem ipsum dolor sit amtelorem ipsum dolor sit
+					amtelorem ipsum dolor sit amte
+				</p>
+			</div>
+		</div>
+	</div>
+	<!-- <div class="mt-4 mb-8">
+		<h2 class="page-subtitle">Upcoming Events</h2>
+		<div class="flex flex-row flex-wrap space-x-8 mt-4 mb-8" />
+	</div> -->
 </div>
