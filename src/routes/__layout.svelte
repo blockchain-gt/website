@@ -77,7 +77,7 @@
 			<div class=" flex-none bg-gradient-to-t from-white to-[#ffffff00] h-32 w-full " />
 			<div class=" flex-grow bg-white" />
 		</div>
-		{#if $page.url.pathname === '/'}
+		{#if $page.url.pathname === '/' || $page.url.pathname.includes('/newsletters/')}
 			<div
 				transition:fade={{ duration: 500 }}
 				class="absolute w-full h-full min-w-0 !overflow-hidden -z-50"
