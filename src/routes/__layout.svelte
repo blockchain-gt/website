@@ -69,7 +69,7 @@
 	<script src="https://kit.fontawesome.com/e2f8d7b5d6.js" crossorigin="anonymous"></script>
 </svelte:head>
 
-<div class="flex flex-row w-full max-w-screen-xl mx-auto h-29">
+<div class="flex flex-row w-full max-w-screen-md mx-auto h-29">
 	<div class="absolute top-0 left-0 w-screen -z-20 h-screen !overflow-hidden min-w-0">
 		<div class="absolute z-50 w-full h-screen flex flex-col">
 			<div class=" flex-none bg-gradient-to-t from-white to-[#ffffff00] h-32 w-full " />
@@ -88,7 +88,7 @@
 	<!-- <div class="w-56 h-full flex-none fixed">
 		<Sidebar {sections} />
 	</div> -->
-	<div class="p-10 pt-16 w-full ml-56">
+	<div class="p-10 pt-16 w-full">
 		<slot />
 	</div>
 </div>
