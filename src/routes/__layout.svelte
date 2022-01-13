@@ -93,9 +93,9 @@
 		{/if}
 		<!-- bg-gradient-to-t from-white to-[#ffffff00] -->
 	</div>
-	<div class="w-56 h-full flex-none fixed">
+	<!-- <div class="w-56 h-full flex-none fixed">
 		<Sidebar {sections} />
-	</div>
+	</div> -->
 	<div class="p-10 pt-16 w-full ml-56">
 		<slot />
 	</div>

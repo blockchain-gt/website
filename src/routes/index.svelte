@@ -1,89 +1,40 @@
 <script context="module" lang="ts">
 	import Client from '$lib/prismic/client';
-	import type { Newsletter, Result } from '$lib/types/prismic';
-
+	import type { Result } from '$lib/types/prismic';
 	import PrismicDOM from 'prismic-dom';
 	import Prismic from '@prismicio/client';
 
 	export const load = async ({ params }) => {
-		const pagePromise = Client.getSingle('home', {});
-		const newslettersPromise = Client.query(Prismic.Predicates.at('document.type', 'newsletter'), {
-			pageSize: 10
-		});
-		const eventsPromise = Client.query(Prismic.Predicates.at('document.type', 'event'), {
-			pageSize: 10
-		});
-
-		const [page, newsletters, events] = await Promise.all([
-			pagePromise,
-			newslettersPromise,
-			eventsPromise
-		]);
+		const page = await Client.getByUID('newsletter', 'first-edition', {});
 
 		return {
 			props: {
-				pageResult: page,
-				newslettersResult: newsletters.results,
-				eventsResult: events.results.filter(
-					(event) => PrismicDOM.Date(event.data.date).getTime() > Date.now()
-				)
+				pageResult: page
 			}
 		};
 	};
 </script>
 
 <script lang="ts">
-	import NewsletterPreview from '$lib/NewsletterPreview.svelte';
-	import type { Event } from '$lib/types/prismic';
-	import EventPreview from '$lib/EventPreview.svelte';
+	export let pageResult: Result<any>;
+	$: page = pageResult ? pageResult.data : {};
 
-	export let newslettersResult: Result<Newsletter>[];
-	export let eventsResult: Result<Event>[];
+	$: pageTitle = PrismicDOM.RichText.asText(page.title);
 </script>
 
-<div>
-	<h1 class=" text-5xl font-bold mb-1">Blockchain</h1>
-	<h1 class=" text-4xl font-normal">at Georgia Tech</h1>
+<svelte:head>
+	<title>{pageTitle}</title>
+</svelte:head>
 
-	<div class="my-8 ml-3 flex flex-wrap space-x-8">
-		{#each newslettersResult as newsletter}
-			<NewsletterPreview {newsletter} />
-		{/each}
-		<!-- <h2 class="page-subtitle">Newsletters</h2> -->
-	</div>
-	<div class="mt-4 mb-8">
-		<h2 class="page-subtitle">Upcoming Events</h2>
-		<div class="flex flex-row flex-wrap space-x-8 mt-4 mb-8">
-			{#each eventsResult as upcomingEvent}
-				<EventPreview event={upcomingEvent.data} />
-			{/each}
+<div>
+	{#if page}
+		<h1 class="page-title !text-5xl max-w-xl">
+			{pageTitle}
+		</h1>
+		<h3 class=" font-medium  text-md mb-2 text-primary mt-2">January 11 2022 • Pruitt Martin</h3>
+		<!-- <a href="" class="text-gray-400 underline font-semibold">Download as a PDF</a> -->
+		<div class="prose my-8">
+			{@html PrismicDOM.RichText.asHtml(page.content)}
 		</div>
-	</div>
-	<div class="mt-4 mb-8">
-		<h2 class="page-subtitle">Our Services</h2>
-		<div class="grid grid-cols-2 gap-8 mt-4 mb-8">
-			<div
-				class="shadow-md p-8 rounded-lg hover:shadow-xl ease-in transition-shadow cursor-pointer"
-			>
-				<h3 class=" text-primary text-xl font-semibold mb-2">For Students</h3>
-				<p class=" leading-snug">
-					Our services lorem ipsum dolor sit amte lorem ipsum dolor sit amtelorem ipsum dolor sit
-					amtelorem ipsum dolor sit amte
-				</p>
-			</div>
-			<div
-				class="shadow-md p-8 rounded-lg hover:shadow-xl ease-in transition-shadow cursor-pointer"
-			>
-				<h3 class="text-primary text-xl font-semibold mb-2">For Companies</h3>
-				<p class="leading-snug">
-					Our services lorem ipsum dolor sit amte lorem ipsum dolor sit amtelorem ipsum dolor sit
-					amtelorem ipsum dolor sit amte
-				</p>
-			</div>
-		</div>
-	</div>
-	<!-- <div class="mt-4 mb-8">
-		<h2 class="page-subtitle">Upcoming Events</h2>
-		<div class="flex flex-row flex-wrap space-x-8 mt-4 mb-8" />
-	</div> -->
+	{/if}
 </div>
