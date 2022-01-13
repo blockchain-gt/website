@@ -23,7 +23,7 @@
 </script>
 
 <svelte:head>
-	<title>{pageTitle}</title>
+	<title>Blockchain at Georgia Tech</title>
 </svelte:head>
 
 <div>
