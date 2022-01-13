@@ -10,7 +10,8 @@ shadow-md hover:shadow-xl ease-in transition-shadow cursor-pointer rounded-lg
 overflow-hidden w-[22rem] will-change-auto 
 "
 >
-	<a sveltekit:prefetch href="/newsletters/{newsletter.uid}">
+	<!-- TODO: Fix -->
+	<a sveltekit:prefetch href="/private/newsletters/{newsletter.uid}">
 		<div class="h-48 bg-gray-100 overflow-hidden">
 			<img class="object-center" src={newsletter.data.header_image.url} alt="" />
 		</div>

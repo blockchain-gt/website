@@ -46,9 +46,10 @@
 	<h2 class="page-subtitle mt-16 mb-6">Archive</h2>
 	<div class="space-y-3">
 		{#each newsletters as newsletter}
+			<!-- TODO: Fix -->
 			<a
 				sveltekit:prefetch
-				href="/newsletters/{newsletter.uid}"
+				href="/private/newsletters/{newsletter.uid}"
 				class="block antialiased underline text-gray-600 font-medium"
 			>
 				{PrismicDOM.RichText.asText(newsletter.data.title)}

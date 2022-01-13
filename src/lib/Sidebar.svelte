@@ -20,8 +20,9 @@
 					PrismicDOM.Link.url(link.url, linkResolver) === w.location.pathname
 						? 'bg-gray-100'
 						: ''}"
-					href={PrismicDOM.Link.url(link.url, linkResolver)}
+					href={'/private' + PrismicDOM.Link.url(link.url, linkResolver)}
 				>
+					<!-- TODO: Fix above -->
 					{link.link_title}
 				</a>
 			{/each}
