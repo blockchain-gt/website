@@ -75,14 +75,14 @@
 			<div class=" flex-none bg-gradient-to-t from-white to-[#ffffff00] h-32 w-full " />
 			<div class=" flex-grow bg-white" />
 		</div>
-		{#if showParticles && ($page.url.pathname === '/' || $page.url.pathname.includes('/newsletters/'))}
-			<div
-				transition:fade={{ duration: 500 }}
-				class="absolute w-full h-full min-w-0 !overflow-hidden -z-50"
-			>
-				<svelte:component this={ParticlesComponent} id="tsparticles" options={particlesConfig} />
-			</div>
-		{/if}
+		<!-- {#if showParticles && ($page.url.pathname === '/' || $page.url.pathname.includes('/newsletters/'))} -->
+		<div
+			transition:fade={{ duration: 500 }}
+			class="absolute w-full h-full min-w-0 !overflow-hidden -z-50"
+		>
+			<svelte:component this={ParticlesComponent} id="tsparticles" options={particlesConfig} />
+		</div>
+		<!-- {/if} -->
 		<!-- bg-gradient-to-t from-white to-[#ffffff00] -->
 	</div>
 	<!-- <div class="w-56 h-full flex-none fixed">
