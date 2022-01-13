@@ -31,7 +31,7 @@
 		<h1 class="page-title !text-5xl max-w-xl">
 			{pageTitle}
 		</h1>
-		<h3 class=" font-medium text-md mb-2 text-primary mt-2">January 11, 2022 • Pruitt Martin</h3>
+		<h3 class=" font-medium text-md mb-2 text-primary mt-2">January 12, 2022 • Pruitt Martin</h3>
 		<!-- <a href="" class="text-gray-400 underline font-semibold">Download as a PDF</a> -->
 		<div class="prose my-8 prose-img:mx-auto">
 			{@html PrismicDOM.RichText.asHtml(page.content)}
