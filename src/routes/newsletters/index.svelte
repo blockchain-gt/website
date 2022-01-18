@@ -35,7 +35,7 @@
 
 <div>
 	<h1 class="page-title">{PrismicDOM.RichText.asText(page.title)}</h1>
-	<div class="prose my-8">
+	<div class="prose my-8 ">
 		{@html PrismicDOM.RichText.asHtml(page.body)}
 	</div>
 	<div class="flex flex-wrap space-x-8 ml-3">

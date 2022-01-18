@@ -53,17 +53,6 @@
 			}
 		}
 	};
-
-	let onParticlesLoaded = (event) => {
-		const particlesContainer = event.detail.particles;
-
-		// you can use particlesContainer to call all the Container class
-		// (from the core library) methods like play, pause, refresh, start, stop
-	};
-
-	let onParticlesInit = (main) => {
-		// you can use main to customize the tsParticles instance adding presets or custom shapes
-	};
 </script>
 
 <svelte:head>
@@ -82,13 +71,7 @@
 				transition:fade={{ duration: 500 }}
 				class="absolute w-full h-full min-w-0 !overflow-hidden -z-50"
 			>
-				<svelte:component
-					this={ParticlesComponent}
-					id="tsparticles"
-					options={particlesConfig}
-					on:particlesLoaded={onParticlesLoaded}
-					on:particlesInit={onParticlesInit}
-				/>
+				<svelte:component this={ParticlesComponent} id="tsparticles" options={particlesConfig} />
 			</div>
 		{/if}
 		<!-- bg-gradient-to-t from-white to-[#ffffff00] -->
