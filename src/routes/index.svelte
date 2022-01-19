@@ -23,6 +23,11 @@
 
 <svelte:head>
 	<title>Blockchain at Georgia Tech</title>
+	<meta
+		property="og:image"
+		content="https://images.prismic.io/blockchaingt/bac216fc-f321-4788-a11a-d957735bc911_Screen+Shot+2022-01-18+at+7.05.28+PM.png?auto=compress,format"
+		name="image"
+	/>
 </svelte:head>
 
 <div>
@@ -33,7 +38,7 @@
 		<h3 class=" font-medium text-md mb-2 text-primary mt-2">
 			January 19, 2022 • Pruitt Martin, Cole Schendl, and Rob Schleusner
 		</h3>
-		<!-- <a href="" class="text-gray-400 underline font-semibold">Download as a PDF</a> -->
+
 		<div class="prose my-8 prose-img:mx-auto">
 			{@html PrismicDOM.RichText.asHtml(page.content)}
 		</div>
