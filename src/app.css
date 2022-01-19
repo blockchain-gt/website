@@ -29,3 +29,7 @@ canvas,
 	max-height: 12rem !important;
 	height: 12rem !important;
 }
+
+.prose strong {
+	@apply text-primary;
+}

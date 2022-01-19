@@ -23,6 +23,7 @@ export interface Event {
 	uid: string;
 	title: string;
 	body: any;
+	content: any;
 	date: string;
 	tags: string[];
 	location: string;

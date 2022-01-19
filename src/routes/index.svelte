@@ -55,11 +55,12 @@
 		<h2 class="page-subtitle">Upcoming Events</h2>
 		<div class="flex flex-row flex-wrap space-x-8 mt-4 mb-8">
 			{#each eventsResult as upcomingEvent}
-				<EventPreview event={upcomingEvent.data} />
+				<EventPreview event={upcomingEvent.data} uid={upcomingEvent.uid} />
 			{/each}
 		</div>
 	</div>
-	<div class="mt-4 mb-8">
+	<div class="mt-4 mb-8">Crypto Fundamentals Course</div>
+	<!-- <div class="mt-4 mb-8">
 		<h2 class="page-subtitle">Our Services</h2>
 		<div class="grid grid-cols-2 gap-8 mt-4 mb-8">
 			<div
@@ -81,7 +82,7 @@
 				</p>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<!-- <div class="mt-4 mb-8">
 		<h2 class="page-subtitle">Upcoming Events</h2>
 		<div class="flex flex-row flex-wrap space-x-8 mt-4 mb-8" />
