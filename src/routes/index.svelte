@@ -2,7 +2,6 @@
 	import Client from '$lib/prismic/client';
 	import type { Result } from '$lib/types/prismic';
 	import PrismicDOM from 'prismic-dom';
-	import Prismic from '@prismicio/client';
 
 	export const load = async ({ params }) => {
 		const page = await Client.getByUID('newsletter', 'treasuredao', {});
