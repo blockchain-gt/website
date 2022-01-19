@@ -21,6 +21,11 @@ h2.page-subtitle {
 .tsparticles,
 canvas {
 	z-index: -50;
-	/* amount of 32 tailwind units */
-	max-height: 8rem !important;
+}
+
+.tsparticles,
+canvas,
+#gradient-div {
+	max-height: 12rem !important;
+	height: 12rem !important;
 }

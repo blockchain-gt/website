@@ -37,7 +37,7 @@
 	let particlesConfig = {
 		particles: {
 			number: {
-				value: 60
+				value: 100
 			},
 			color: {
 				value: '#182552'
@@ -63,10 +63,10 @@
 <div class="flex flex-row w-full max-w-screen-xl mx-auto h-29">
 	<div class="absolute top-0 left-0 w-screen -z-20 h-screen !overflow-hidden min-w-0">
 		<div class="absolute z-50 w-full h-screen flex flex-col">
-			<div class=" flex-none bg-gradient-to-t from-white to-[#ffffff00] h-32 w-full " />
+			<div id="gradient-div" class=" flex-none bg-gradient-to-t from-white to-[#ffffff00] w-full" />
 			<div class=" flex-grow bg-white" />
 		</div>
-		{#if $page.url.pathname === '/' || $page.url.pathname.includes('/newsletters/')}
+		{#if $page.url.pathname === '/' || $page.url.pathname.includes('/newsletters/') || true}
 			<div
 				transition:fade={{ duration: 500 }}
 				class="absolute w-full h-full min-w-0 !overflow-hidden -z-50"
