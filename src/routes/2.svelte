@@ -25,7 +25,7 @@
 	<title>Blockchain at Georgia Tech</title>
 	<meta
 		property="og:image"
-		content="https://prismic-io.s3.amazonaws.com/blockchaingt/53b53dfc-ec9b-4d1d-83b4-c32a2ac358c6_Screen+Shot+2022-01-11+at+2.16.22+PM.png"
+		content="https://images.prismic.io/blockchaingt/bac216fc-f321-4788-a11a-d957735bc911_Screen+Shot+2022-01-18+at+7.05.28+PM.png?auto=compress,format"
 		name="image"
 	/>
 </svelte:head>
