@@ -4,7 +4,7 @@
 	import PrismicDOM from 'prismic-dom';
 
 	export const load = async ({ params }) => {
-		const page = await Client.getByUID('newsletter', 'first-edition', {});
+		const page = await Client.getByUID('newsletter', 'treasuredao', {});
 
 		return {
 			props: {
