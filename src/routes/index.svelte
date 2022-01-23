@@ -33,6 +33,7 @@
 </script>
 
 <script lang="ts">
+	const tags = ['Basics', 'NFT', 'Web3'];
 	import NewsletterPreview from '$lib/NewsletterPreview.svelte';
 	import type { Event } from '$lib/types/prismic';
 	import EventPreview from '$lib/EventPreview.svelte';
@@ -63,18 +64,29 @@
 		<h2 class="page-subtitle">Our Course</h2>
 		<a href="/crypto-course">
 			<div
-				class="mt-4 shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer rounded-lg flex flex-row max-w-screen-md"
+				class="overflow-hidden mt-4 shadow-md hover:shadow-xl h-56 transition-all duration-500 cursor-pointer rounded-lg flex flex-row max-w-screen-md"
 			>
-				<div class="image">
-					<img src="" alt="" />
+				<div class="image overflow-hidden w-60 flex-none object-cover">
+					<img src="/blockchain.jpg" class="object-cover h-full" alt="" />
 				</div>
-				<div class="p-6">
-					<h4 class="font-semibold text-primary text-lg">Crypto Fundamentals Course</h4>
-					<p>
-						Interested in learning more about blockchain technology, crypto, and web3? Blockchain at
-						Georgia Tech as created a 10 week fundamentals course that will prepare you to start you
-						crypto journey
-					</p>
+				<div class="p-6 flex flex-col justify-between">
+					<div>
+						<h4 class="font-semibold text-primary text-lg">Crypto Fundamentals Course</h4>
+						<p class="text-sm">
+							Interested in learning more about blockchain technology, crypto, and web3? Blockchain
+							at Georgia Tech as created a 10 week fundamentals course that will prepare you to
+							start you crypto journey
+						</p>
+					</div>
+					<div>
+						{#each tags as tag}
+							<span
+								class="p-2 px-4 bg-blue-100 text-blue-900 font-medium text-sm rounded-[4px] mr-2"
+							>
+								{tag}
+							</span>
+						{/each}
+					</div>
 				</div>
 			</div>
 		</a>
@@ -107,5 +119,3 @@
 		<div class="flex flex-row flex-wrap space-x-8 mt-4 mb-8" />
 	</div> -->
 </div>
-
-<!-- THINGS TO FIX: Author, date, overlap issue with particles -->

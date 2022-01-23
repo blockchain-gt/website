@@ -53,7 +53,20 @@
 			}
 		}
 	};
+
+	let scrollY;
+	let showParticles = true;
+	$: {
+		console.log('run');
+
+		if (typeof window !== 'undefined' && scrollY > 128) {
+			showParticles = false;
+			console.log('dont show');
+		} else showParticles = true;
+	}
 </script>
+
+<svelte:window bind:scrollY />
 
 <svelte:head>
 	<title>{$page.url.pathname.substring(1) || 'Home'} - Blockchain at Georgia Tech</title>
@@ -66,7 +79,7 @@
 			<div id="gradient-div" class=" flex-none bg-gradient-to-t from-white to-[#ffffff00] w-full" />
 			<div class=" flex-grow bg-white" />
 		</div>
-		{#if $page.url.pathname === '/' || $page.url.pathname.includes('/newsletters/') || true}
+		{#if showParticles}
 			<div
 				transition:fade={{ duration: 500 }}
 				class="absolute w-full h-full min-w-0 !overflow-hidden -z-50"

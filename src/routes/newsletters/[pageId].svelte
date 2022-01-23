@@ -7,11 +7,13 @@
 	export const load = async ({ params }) => {
 		const page = await Client.getByUID('newsletter', params.pageId, {});
 
-		const authors = page.data.author;
+		const authorsData = page.data.author;
+
+		console.log(authorsData);
 
 		// TODO: authors, backend for forms
-		const promises = authors.map(async (author) => {
-			const authorData = await Client.getByUID('person', author.uid, {});
+		const promises = authorsData.map(async (author) => {
+			const authorData = await Client.getByID(author.person.id);
 			console.log(authorData);
 			return {
 				...author,
@@ -19,9 +21,13 @@
 			};
 		});
 
+		const authors = await Promise.all(promises);
+		console.log(authors);
+
 		return {
 			props: {
-				pageResult: page
+				pageResult: page,
+				authors
 			}
 		};
 	};
@@ -32,8 +38,9 @@
 	$: page = pageResult ? pageResult.data : {};
 
 	$: pageTitle = PrismicDOM.RichText.asText(page.title);
-	$: authors = page.author.map((a) => a);
-	// $: console.log(authors);
+	export let authors: any[] = [];
+	$: authorNames = authors.map((a) => PrismicDOM.RichText.asText(a.name));
+	$: console.log(page);
 </script>
 
 <svelte:head>
@@ -42,7 +49,11 @@
 
 <div>
 	{#if page}
-		<!-- <h3 class="uppercase font-bold text-xs mb-2 text-primary">January 2 2022 • Author Name</h3> -->
+		<h3 class="uppercase font-bold text-xs mb-2 text-primary">
+			{page.date} • {#each authorNames as name, i}
+				{name}{#if i < authorNames.length - 1},&nbsp;{/if}
+			{/each}
+		</h3>
 		<h1 class="page-title !text-5xl max-w-xl">
 			{pageTitle}
 		</h1>
