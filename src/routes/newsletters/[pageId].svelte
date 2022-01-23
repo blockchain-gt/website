@@ -7,6 +7,18 @@
 	export const load = async ({ params }) => {
 		const page = await Client.getByUID('newsletter', params.pageId, {});
 
+		const authors = page.data.author;
+
+		// TODO: authors, backend for forms
+		const promises = authors.map(async (author) => {
+			const authorData = await Client.getByUID('person', author.uid, {});
+			console.log(authorData);
+			return {
+				...author,
+				...authorData.data
+			};
+		});
+
 		return {
 			props: {
 				pageResult: page
@@ -20,6 +32,8 @@
 	$: page = pageResult ? pageResult.data : {};
 
 	$: pageTitle = PrismicDOM.RichText.asText(page.title);
+	$: authors = page.author.map((a) => a);
+	// $: console.log(authors);
 </script>
 
 <svelte:head>

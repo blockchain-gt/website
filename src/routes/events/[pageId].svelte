@@ -40,14 +40,14 @@
 
 <div>
 	{#if page}
-		<div class=" text-secondary font-bold uppercase text-sm tracking-wide mt-4 mb-1">
-			{dateString} • {timeString} • {page.location}
-		</div>
 		<h1 class="page-title !text-5xl max-w-xl">
 			{pageTitle}
 		</h1>
-		<div class="prose my-8 prose-img:mx-auto">
-			{@html PrismicDOM.RichText.asHtml(page.content || page.body)}
+		<div class="prose mt-8 prose-img:mx-auto">
+			{@html PrismicDOM.RichText.asHtml(page.content) || PrismicDOM.RichText.asHtml(page.body)}
+		</div>
+		<div class=" text-primary font-bold uppercase text-sm tracking-wide mt-4 mb-1">
+			{dateString} • {timeString} • {page.location}
 		</div>
 	{/if}
 </div>

@@ -59,7 +59,26 @@
 			{/each}
 		</div>
 	</div>
-	<div class="mt-4 mb-8">Crypto Fundamentals Course</div>
+	<div class="mt-4 mb-8">
+		<h2 class="page-subtitle">Our Course</h2>
+		<a href="/crypto-course">
+			<div
+				class="mt-4 shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer rounded-lg flex flex-row max-w-screen-md"
+			>
+				<div class="image">
+					<img src="" alt="" />
+				</div>
+				<div class="p-6">
+					<h4 class="font-semibold text-primary text-lg">Crypto Fundamentals Course</h4>
+					<p>
+						Interested in learning more about blockchain technology, crypto, and web3? Blockchain at
+						Georgia Tech as created a 10 week fundamentals course that will prepare you to start you
+						crypto journey
+					</p>
+				</div>
+			</div>
+		</a>
+	</div>
 	<!-- <div class="mt-4 mb-8">
 		<h2 class="page-subtitle">Our Services</h2>
 		<div class="grid grid-cols-2 gap-8 mt-4 mb-8">
@@ -88,3 +107,5 @@
 		<div class="flex flex-row flex-wrap space-x-8 mt-4 mb-8" />
 	</div> -->
 </div>
+
+<!-- THINGS TO FIX: Author, date, overlap issue with particles -->
