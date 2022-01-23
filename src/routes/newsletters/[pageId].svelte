@@ -9,8 +9,6 @@
 
 		const authorsData = page.data.author;
 
-		console.log(authorsData);
-
 		// TODO: authors, backend for forms
 		const promises = authorsData.map(async (author) => {
 			const authorData = await Client.getByID(author.person.id, {});
@@ -40,23 +38,23 @@
 	$: pageTitle = PrismicDOM.RichText.asText(page.title);
 	export let authors: any[] = [];
 	$: authorNames = authors.map((a) => PrismicDOM.RichText.asText(a.name));
-	$: console.log(page);
 </script>
 
 <svelte:head>
 	<title>{pageTitle}</title>
+	<meta property="og:image" content={page.header_image.url} />
 </svelte:head>
 
 <div>
 	{#if page}
-		<h3 class="uppercase font-bold text-xs mb-2 text-primary">
+		<h1 class="page-title !text-5xl max-w-xl">
+			{pageTitle}
+		</h1>
+		<h3 class="font-medium text-md mb-2 text-primary mt-2"">
 			{page.date} • {#each authorNames as name, i}
 				{name}{#if i < authorNames.length - 1},&nbsp;{/if}
 			{/each}
 		</h3>
-		<h1 class="page-title !text-5xl max-w-xl">
-			{pageTitle}
-		</h1>
 		<!-- <a href="" class="text-gray-400 underline font-semibold">Download as a PDF</a> -->
 		<div class="prose my-8 prose-img:mx-auto">
 			{@html PrismicDOM.RichText.asHtml(page.content)}
