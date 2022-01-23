@@ -50,7 +50,7 @@
 		<h1 class="page-title !text-5xl max-w-xl">
 			{pageTitle}
 		</h1>
-		<h3 class="font-medium text-md mb-2 text-primary mt-2"">
+		<h3 class="font-medium text-md mb-2 text-primary mt-2">
 			{page.date} • {#each authorNames as name, i}
 				{name}{#if i < authorNames.length - 1},&nbsp;{/if}
 			{/each}
