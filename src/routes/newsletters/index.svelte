@@ -9,7 +9,7 @@
 	export const load = async ({ params }) => {
 		const pagePromise = Client.getSingle('newsletter_home', {});
 		const newslettersPromise = Client.query(Prismic.Predicates.at('document.type', 'newsletter'), {
-			pageSize: 10
+			pageSize: 2
 		});
 
 		const [page, newsletters] = await Promise.all([pagePromise, newslettersPromise]);

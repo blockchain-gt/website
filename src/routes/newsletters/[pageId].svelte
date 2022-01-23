@@ -13,7 +13,7 @@
 
 		// TODO: authors, backend for forms
 		const promises = authorsData.map(async (author) => {
-			const authorData = await Client.getByID(author.person.id);
+			const authorData = await Client.getByID(author.person.id, {});
 			console.log(authorData);
 			return {
 				...author,

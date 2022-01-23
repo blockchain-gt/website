@@ -11,7 +11,8 @@
 			pageSize: 10
 		});
 		const eventsPromise = Client.query(Prismic.Predicates.at('document.type', 'event'), {
-			pageSize: 10
+			pageSize: 10,
+			orderings: '[my.event.date]'
 		});
 
 		const [page, newsletters, events] = await Promise.all([
@@ -33,7 +34,7 @@
 </script>
 
 <script lang="ts">
-	const tags = ['Basics', 'NFT', 'Web3'];
+	const tags = ['Basics', 'NFTs', 'Web3', 'Defi'];
 	import NewsletterPreview from '$lib/NewsletterPreview.svelte';
 	import type { Event } from '$lib/types/prismic';
 	import EventPreview from '$lib/EventPreview.svelte';
@@ -74,7 +75,7 @@
 						<h4 class="font-semibold text-primary text-lg">Crypto Fundamentals Course</h4>
 						<p class="text-sm">
 							Interested in learning more about blockchain technology, crypto, and web3? Blockchain
-							at Georgia Tech as created a 10 week fundamentals course that will prepare you to
+							at Georgia Tech has created a 10 week fundamentals course that will prepare you to
 							start you crypto journey
 						</p>
 					</div>
