@@ -80,10 +80,7 @@
 			<div class=" flex-grow bg-white" />
 		</div>
 		{#if showParticles}
-			<div
-				transition:fade={{ duration: 500 }}
-				class="absolute w-full h-full min-w-0 !overflow-hidden -z-50"
-			>
+			<div class="absolute w-full h-full min-w-0 !overflow-hidden -z-50">
 				<svelte:component this={ParticlesComponent} id="tsparticles" options={particlesConfig} />
 			</div>
 		{/if}
