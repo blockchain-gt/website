@@ -80,7 +80,7 @@
 						<p class="text-sm">
 							Interested in learning more about blockchain technology, crypto, and web3? Blockchain
 							at Georgia Tech has created a 10 week fundamentals course that will prepare you to
-							start you crypto journey
+							start your crypto journey
 						</p>
 					</div>
 					<div>
