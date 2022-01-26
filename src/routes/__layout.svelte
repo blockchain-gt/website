@@ -59,7 +59,7 @@
 	$: {
 		console.log('run');
 
-		if (typeof window !== 'undefined' && scrollY > 128) {
+		if (typeof window !== 'undefined' && scrollY > 192) {
 			showParticles = false;
 			console.log('dont show');
 		} else showParticles = true;
