@@ -12,7 +12,7 @@ overflow-hidden w-[22rem] will-change-auto
 >
 	<a sveltekit:prefetch href="/newsletters/{newsletter.uid}">
 		<div class="h-48 bg-gray-100 overflow-hidden">
-			<img class="object-center" src={newsletter.data.header_image.url} alt="" />
+			<img class="w-full h-full object-cover" src={newsletter.data.header_image.url} alt="" />
 		</div>
 		<!-- Bottom of card -->
 		<div class="p-5">

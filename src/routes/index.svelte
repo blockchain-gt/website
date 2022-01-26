@@ -47,17 +47,21 @@
 	<h1 class=" text-5xl font-bold mb-1">Blockchain</h1>
 	<h1 class=" text-4xl font-normal">at Georgia Tech</h1>
 
-	<div class="my-8 ml-3 flex flex-wrap space-x-8">
+	<div class="my-8 flex flex-wrap">
 		{#each newslettersResult as newsletter}
-			<NewsletterPreview {newsletter} />
+			<div class="m-4 mt-0">
+				<NewsletterPreview {newsletter} />
+			</div>
 		{/each}
 		<!-- <h2 class="page-subtitle">Newsletters</h2> -->
 	</div>
 	<div class="mt-4 mb-8">
 		<h2 class="page-subtitle">Upcoming Events</h2>
-		<div class="flex flex-row flex-wrap space-x-8 mt-4 mb-8">
+		<div class="flex flex-row flex-wrap mt-4 mb-8">
 			{#each eventsResult as upcomingEvent}
-				<EventPreview event={upcomingEvent.data} uid={upcomingEvent.uid} />
+				<div class="m-4 mt-0">
+					<EventPreview event={upcomingEvent.data} uid={upcomingEvent.uid} />
+				</div>
 			{/each}
 		</div>
 	</div>
@@ -65,9 +69,9 @@
 		<h2 class="page-subtitle">Our Course</h2>
 		<a href="/crypto-course">
 			<div
-				class="overflow-hidden mt-4 shadow-md hover:shadow-xl h-56 transition-all duration-500 cursor-pointer rounded-lg flex flex-row max-w-screen-md"
+				class="overflow-hidden mt-4 shadow-md hover:shadow-xl h-56 transition-all ml-4 duration-500 cursor-pointer rounded-lg flex flex-row max-w-screen-md"
 			>
-				<div class="image overflow-hidden w-60 flex-none object-cover">
+				<div class="image overflow-hidden w-60 flex-none hidden md:block object-cover">
 					<img src="/blockchain.jpg" class="object-cover h-full" alt="" />
 				</div>
 				<div class="p-6 flex flex-col justify-between">
