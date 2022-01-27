@@ -35,6 +35,7 @@
 	"dependencies": {
 		"@prismicio/client": "^5.1.0",
 		"@sveltejs/adapter-static": "^1.0.0-next.24",
+		"@sveltejs/adapter-vercel": "^1.0.0-next.0",
 		"@tailwindcss/forms": "^0.4.0",
 		"@tailwindcss/line-clamp": "^0.3.0",
 		"prismic-dom": "^2.2.6",

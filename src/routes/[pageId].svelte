@@ -6,6 +6,8 @@
 	export const load = async ({ params }) => {
 		const page = await Client.getByUID('page', params.pageId, {});
 
+		console.log(page.uid);
+
 		return {
 			props: {
 				pageResult: page
@@ -25,6 +27,5 @@
 		<div class="prose my-8">
 			{@html PrismicDOM.RichText.asHtml(page.content)}
 		</div>
-		<!-- <pre>{JSON.stringify(page, null, 2)}</pre> -->
 	{/if}
 </div>

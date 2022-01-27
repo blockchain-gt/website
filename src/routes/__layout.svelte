@@ -57,8 +57,6 @@
 	let scrollY;
 	let showParticles = true;
 	$: {
-		console.log('run');
-
 		if (typeof window !== 'undefined' && scrollY > 192) {
 			showParticles = false;
 			console.log('dont show');
