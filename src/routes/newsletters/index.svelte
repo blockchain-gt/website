@@ -9,7 +9,7 @@
 	export const load = async ({ params }) => {
 		const pagePromise = Client.getSingle('newsletter_home', {});
 		const newslettersPromise = Client.query(Prismic.Predicates.at('document.type', 'newsletter'), {
-			pageSize: 2
+			pageSize: 100
 		});
 
 		const [page, newsletters] = await Promise.all([pagePromise, newslettersPromise]);
@@ -38,8 +38,8 @@
 	<div class="prose my-8 ">
 		{@html PrismicDOM.RichText.asHtml(page.body)}
 	</div>
-	<div class="flex flex-wrap space-x-8 ml-3">
-		{#each newsletters as newsletter}
+	<div class="flex flex-wrap gap-8 ml-3">
+		{#each newsletters.slice(0, 2) as newsletter}
 			<NewsletterPreview {newsletter} />
 		{/each}
 	</div>

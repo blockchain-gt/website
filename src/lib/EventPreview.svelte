@@ -20,8 +20,7 @@
 <a href="/events/{uid}">
 	<div
 		class="!aspect-square !w-64 p-6
-    shadow-md hover:shadow-xl ease-in transition-shadow cursor-pointer rounded-lg
-    my-2 flex-none overflow-hidden flex flex-col justify-between"
+    shadow-md hover:shadow-xl ease-in transition-shadow cursor-pointer rounded-lg flex-none overflow-hidden flex flex-col justify-between"
 	>
 		<div>
 			<h5 class="uppercase text-xs font-semibold text-secondary filter brightness-90">

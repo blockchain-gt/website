@@ -56,7 +56,7 @@
 	</div>
 	<div class="past-events mt-2 mb-6">
 		<h2 class="page-subtitle">Past Events</h2>
-		<div class="flex flex-row flex-wrap space-x-8 mt-4 mb-8">
+		<div class="flex flex-row flex-wrap gap-8 mt-4 mb-8">
 			{#each pastEvents as pastEvent}
 				<EventPreview event={pastEvent.data} uid={pastEvent.uid} />
 			{/each}
