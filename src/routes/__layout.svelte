@@ -64,12 +64,20 @@
 	}
 
 	let menuOpen = false;
+
+	function titleCase(str) {
+		str = str.toLowerCase().split(' ');
+		for (var i = 0; i < str.length; i++) {
+			str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
+		}
+		return str.join(' ');
+	}
 </script>
 
 <svelte:window bind:scrollY />
 
 <svelte:head>
-	<title>{$page.url.pathname.substring(1) || 'Home'} - Blockchain at Georgia Tech</title>
+	<title>{titleCase($page.url.pathname.substring(1)) || 'Home'} - Blockchain at Georgia Tech</title>
 	<script src="https://kit.fontawesome.com/e2f8d7b5d6.js" crossorigin="anonymous"></script>
 </svelte:head>
 
