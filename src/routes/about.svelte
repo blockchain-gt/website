@@ -6,16 +6,13 @@
 	import { dataset_dev } from 'svelte/internal';
 
 	export const load = async ({ params }) => {
-		const page = await Client.getByUID('page', 'about', {});
+		const pagePromise = await Client.getByUID('page', 'about', {});
 
-		const team = await Client.getSingle('people', {
+		const teamPromise = await Client.getSingle('people', {
 			fetchLinks: 'person.image, person.bio, person.name'
 		});
-		// const team = await Client.query(Prismic.Predicates.at('document.type', 'person'), {
-		// 	pageSize: 100
-		// });
 
-		console.log(team.data.people[0]);
+		const [page, team] = await Promise.all([pagePromise, teamPromise]);
 
 		return {
 			props: {
