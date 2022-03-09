@@ -39,7 +39,7 @@
 		{@html PrismicDOM.RichText.asHtml(page.body)}
 	</div>
 	<div class="flex flex-wrap gap-8 ml-3">
-		{#each newsletters.slice(0, 2) as newsletter}
+		{#each newsletters.slice(0, 8) as newsletter}
 			<NewsletterPreview {newsletter} />
 		{/each}
 	</div>
