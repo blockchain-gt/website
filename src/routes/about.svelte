@@ -2,9 +2,6 @@
 	import Client from '$lib/prismic/client';
 	import type { Result } from '$lib/types/prismic';
 	import PrismicDOM from 'prismic-dom';
-	import Prismic from '@prismicio/client';
-	import { dataset_dev } from 'svelte/internal';
-
 	export const load = async ({ params }) => {
 		const pagePromise = await Client.getByUID('page', 'about', {});
 
