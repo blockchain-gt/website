@@ -53,7 +53,6 @@
 				<NewsletterPreview {newsletter} />
 			</div>
 		{/each}
-		<!-- <h2 class="page-subtitle">Newsletters</h2> -->
 	</div>
 	<div class="mt-4 mb-8">
 		<h2 class="page-subtitle">Upcoming Events</h2>
