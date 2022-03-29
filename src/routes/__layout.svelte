@@ -124,7 +124,15 @@
 			class="h-screen w-[90vw] bg-gray-100 z-50 fixed"
 			transition:fly={{ delay: 250, duration: 100, x: -1 * window.innerWidth, y: 0, opacity: 0.5 }}
 		>
-			<Sidebar {sections} />
+			<div
+				class="absolute left-8 top-8 text-4xl text-gray-400"
+				on:click={() => (menuOpen = !menuOpen)}
+			>
+				&times;
+			</div>
+			<div class="pt-4">
+				<Sidebar {sections} />
+			</div>
 		</div>
 	{/if}
 
