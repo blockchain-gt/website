@@ -31,6 +31,9 @@
 	onMount(async () => {
 		const module = await import('svelte-particles');
 
+		if (window.innerWidth < 600) {
+			particlesConfig.particles.number.value = 50;
+		}
 		ParticlesComponent = module.default;
 	});
 
