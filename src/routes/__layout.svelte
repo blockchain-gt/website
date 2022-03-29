@@ -32,7 +32,7 @@
 		const module = await import('svelte-particles');
 
 		if (window.innerWidth < 600) {
-			particlesConfig.particles.number.value = 50;
+			particlesConfig.particles.number.value = 30;
 		}
 		ParticlesComponent = module.default;
 	});
@@ -67,6 +67,11 @@
 	}
 
 	let menuOpen = false;
+
+	$: {
+		$page.url;
+		menuOpen = false;
+	}
 
 	function titleCase(str) {
 		str = str.toLowerCase().split(' ');

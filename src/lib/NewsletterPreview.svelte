@@ -6,9 +6,8 @@
 
 <div
 	class="
-shadow-md hover:shadow-xl ease-in transition-shadow cursor-pointer rounded-lg
-overflow-hidden w-[22rem] will-change-auto 
-"
+	shadow-md hover:shadow-xl ease-in transition-shadow cursor-pointer rounded-lg
+	overflow-hidden w-[18rem] md:w-[22rem] will-change-auto "
 >
 	<a sveltekit:prefetch href="/newsletters/{newsletter.uid}">
 		<div class="h-48 bg-gray-100 overflow-hidden">

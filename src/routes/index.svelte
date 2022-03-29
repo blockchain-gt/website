@@ -49,7 +49,7 @@
 
 	<div class="my-8 flex flex-wrap gap-2">
 		{#each newslettersResult as newsletter}
-			<div class="m-4 mt-0">
+			<div class="m-0 md:m-4 md:mt-0">
 				<NewsletterPreview {newsletter} />
 			</div>
 		{/each}
