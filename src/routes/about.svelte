@@ -37,7 +37,7 @@
 				<div>
 					<div class="flex flex-row justify-center">
 						<img
-							class="rounded-full w-2/3 aspect-square object-cover bg-gray-200"
+							class="rounded-full w-2/3 !aspect-square object-cover bg-gray-200"
 							src={person.person.data.image.url}
 							alt={person.person.data.name}
 						/>
