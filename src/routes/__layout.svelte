@@ -24,7 +24,7 @@
 	export let sections: Result<SidebarSection>[];
 
 	import { onMount } from 'svelte';
-	import { fade, fly } from 'svelte/transition';
+	import { fly } from 'svelte/transition';
 
 	let ParticlesComponent;
 
@@ -104,7 +104,10 @@
 	<div class="w-56 h-full hidden md:block flex-none md:fixed">
 		<Sidebar {sections} />
 	</div>
-	<div class="w-full fixed block md:hidden p-4 opacity-30" on:click={() => (menuOpen = !menuOpen)}>
+	<div
+		class="w-full absolute block md:hidden p-4 opacity-30"
+		on:click={() => (menuOpen = !menuOpen)}
+	>
 		<svg
 			version="1.1"
 			id="Capa_1"
