@@ -47,23 +47,27 @@
 	<h1 class=" text-5xl font-bold mb-1">Blockchain</h1>
 	<h1 class=" text-4xl font-normal">at Georgia Tech</h1>
 
-	<div class="my-8 flex flex-wrap gap-2">
-		{#each newslettersResult as newsletter}
-			<div class="m-0 md:m-4 md:mt-0">
-				<NewsletterPreview {newsletter} />
-			</div>
-		{/each}
-	</div>
-	<div class="mt-4 mb-8">
-		<h2 class="page-subtitle">Upcoming Events</h2>
-		<div class="flex flex-row flex-wrap mt-4 mb-8">
-			{#each eventsResult as upcomingEvent}
-				<div class="m-4 mt-0">
-					<EventPreview event={upcomingEvent.data} uid={upcomingEvent.uid} />
+	{#if newslettersResult.length}
+		<div class="my-8 flex flex-wrap gap-2">
+			{#each newslettersResult as newsletter}
+				<div class="m-0 md:m-4 md:mt-0">
+					<NewsletterPreview {newsletter} />
 				</div>
 			{/each}
 		</div>
-	</div>
+	{/if}
+	{#if eventsResult.length}
+		<div class="mt-4 mb-8">
+			<h2 class="page-subtitle">Upcoming Events</h2>
+			<div class="flex flex-row flex-wrap mt-4 mb-8">
+				{#each eventsResult as upcomingEvent}
+					<div class="m-4 mt-0">
+						<EventPreview event={upcomingEvent.data} uid={upcomingEvent.uid} />
+					</div>
+				{/each}
+			</div>
+		</div>
+	{/if}
 	<div class="mt-4 mb-8">
 		<h2 class="page-subtitle">Our Course</h2>
 		<a href="/crypto-course">
