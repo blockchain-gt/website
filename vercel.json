@@ -1,0 +1,14 @@
+{
+	"redirects": [
+		{
+			"source": "/docs",
+			"destination": "/https://blockchain-gt.notion.site/blockchain-gt/Blockchain-at-Georgia-Tech-c80d5626c6da4f07837ec45f9a89dc8f",
+			"permanent": true
+		},
+		{
+			"source": "/notion",
+			"destination": "/https://blockchain-gt.notion.site/blockchain-gt/Blockchain-at-Georgia-Tech-c80d5626c6da4f07837ec45f9a89dc8f",
+			"permanent": true
+		}
+	]
+}
