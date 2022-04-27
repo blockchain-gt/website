@@ -25,7 +25,7 @@
 	<div class="prose my-8">
 		{@html PrismicDOM.RichText.asHtml(page.body)}
 	</div>
-	<form
+	<!-- <form
 		accept-charset="UTF-8"
 		action="https://www.formbackend.com/f/9455bd56a7ceca80"
 		method="POST"
@@ -57,5 +57,5 @@
 			</label>
 			<button class="p-4 bg-gray-100 rounded-sm">Submit</button>
 		</div>
-	</form>
+	</form> -->
 </div>
