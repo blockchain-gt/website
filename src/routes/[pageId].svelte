@@ -8,11 +8,9 @@
 
 		if (!page || !page.uid) {
 			return {
-				error: 404,
 				status: 404
 			};
 		}
-		console.log(page.uid);
 
 		return {
 			props: {
