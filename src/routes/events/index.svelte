@@ -9,7 +9,7 @@
 	export const load = async () => {
 		const pagePromise = Client.getSingle('events_home', {});
 		const eventsPromise = Client.query(Prismic.Predicates.at('document.type', 'event'), {
-			orderings: '[my.event.date]',
+			orderings: '[my.event.date desc]',
 			pageSize: 50
 		});
 
