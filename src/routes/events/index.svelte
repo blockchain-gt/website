@@ -49,7 +49,7 @@
 	<div class="upcoming-events mt-2 mb-6 ">
 		<h2 class="page-subtitle">Upcoming Events</h2>
 		<div class="flex flex-row flex-wrap space-x-8 mt-4 mb-8">
-			{#each upcomingEvents as upcomingEvent}
+			{#each upcomingEvents.reverse() as upcomingEvent}
 				<EventPreview event={upcomingEvent.data} uid={upcomingEvent.uid} />
 			{/each}
 		</div>
