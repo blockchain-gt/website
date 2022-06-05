@@ -9,7 +9,7 @@
 	export const load = async () => {
 		const pagePromise = Client.getSingle('events_home', {});
 		const eventsPromise = Client.query(Prismic.Predicates.at('document.type', 'event'), {
-			orderings: '[my.event.date desc]',
+			orderings: '[my.event.date]',
 			pageSize: 50
 		});
 
@@ -49,7 +49,7 @@
 	<div class="upcoming-events mt-2 mb-6 ">
 		<h2 class="page-subtitle">Upcoming Events</h2>
 		<div class="flex flex-row flex-wrap space-x-8 mt-4 mb-8">
-			{#each upcomingEvents.reverse() as upcomingEvent}
+			{#each upcomingEvents as upcomingEvent}
 				<EventPreview event={upcomingEvent.data} uid={upcomingEvent.uid} />
 			{/each}
 		</div>
@@ -57,7 +57,7 @@
 	<div class="past-events mt-2 mb-6">
 		<h2 class="page-subtitle">Past Events</h2>
 		<div class="flex flex-row flex-wrap gap-8 mt-4 mb-8">
-			{#each pastEvents as pastEvent}
+			{#each pastEvents.reverse() as pastEvent}
 				<EventPreview event={pastEvent.data} uid={pastEvent.uid} />
 			{/each}
 		</div>
