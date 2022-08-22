@@ -76,7 +76,7 @@
 	{/if}
 	<div class="mt-4 mb-8">
 		<h2 class="page-subtitle">Our Course</h2>
-		<a href="/crypto-course">
+		<a href="/crypto-class-fall-2022">
 			<div
 				class="overflow-hidden mt-4 shadow-md hover:shadow-xl md:h-56 transition-all ml-4 duration-500 cursor-pointer rounded-lg flex flex-row max-w-screen-md"
 			>
