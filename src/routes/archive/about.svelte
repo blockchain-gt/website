@@ -30,7 +30,9 @@
 	{#if page}
 		<h1 class="page-title">{PrismicDOM.RichText.asText(page.title)}</h1>
 		<div class="prose my-8">
-			{@html PrismicDOM.RichText.asHtml(page.content)}
+			{#if page.content}
+				{@html PrismicDOM.RichText.asHtml(page.content)}
+			{/if}
 		</div>
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-16 mt-20 px-4">
 			{#each team as person}
@@ -40,27 +42,27 @@
 							<img
 								class="rounded-full w-2/3 !aspect-square object-cover bg-gray-200"
 								src={person.person.data?.image.url}
-								alt={person.person.data.name}
+								alt={person.person.data?.name}
 							/>
 						{/if}
 					</div>
 					<h2 class="font-bold text-2xl mt-4 mb-0">
-						{PrismicDOM.RichText.asText(person.person.data.name)}
+						{PrismicDOM.RichText.asText(person.person.data?.name)}
 					</h2>
 					<p>
-						{PrismicDOM.RichText.asText(person.person.data.bio)}
+						{PrismicDOM.RichText.asText(person.person.data?.bio)}
 					</p>
 					<div
 						class="flex flex-row justify-start gap-x-4 p-4 opacity-60 hover:opacity-100 transition-opacity"
 					>
 						{#if person.person.data.linkedin?.url}
 							<a class="w-6 h-6" href={person.person.data.linkedin?.url}>
-								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
-									><path
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+									<path
 										d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"
-									/></svg
-								></a
-							>
+									/>
+								</svg>
+							</a>
 						{/if}
 						{#if person.person.data.twitter?.url}
 							<a class="w-6 h-6 mt-0.5" href={person.person.data.twitter?.url}>
