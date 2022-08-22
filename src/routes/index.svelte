@@ -12,7 +12,7 @@
 		});
 		const eventsPromise = Client.query(Prismic.Predicates.at('document.type', 'event'), {
 			pageSize: 10,
-			orderings: '[my.event.date]'
+			orderings: '[my.event.date desc]'
 		});
 
 		const [page, newsletters, events] = await Promise.all([
@@ -21,13 +21,17 @@
 			eventsPromise
 		]);
 
+		console.log(events);
+
 		return {
 			props: {
 				pageResult: page,
 				newslettersResult: newsletters.results,
-				eventsResult: events.results.filter(
-					(event) => PrismicDOM.Date(event.data.date).getTime() > Date.now()
-				)
+				eventsResult: events.results
+					.filter((event) => {
+						return PrismicDOM.Date(event.data.date).getTime() > Date.now();
+					})
+					.reverse()
 			}
 		};
 	};
@@ -41,6 +45,8 @@
 
 	export let newslettersResult: Result<Newsletter>[];
 	export let eventsResult: Result<Event>[];
+
+	console.log(eventsResult);
 </script>
 
 <div>
