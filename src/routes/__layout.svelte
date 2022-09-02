@@ -24,10 +24,11 @@
 	export let sections: Result<SidebarSection>[];
 
 	import { onMount } from 'svelte';
-	import { fly } from 'svelte/transition';
+	import { fade, fly } from 'svelte/transition';
 
 	let ParticlesComponent;
 
+	let particlesLoaded = false;
 	onMount(async () => {
 		const module = await import('svelte-particles');
 
@@ -35,6 +36,7 @@
 			particlesConfig.particles.number.value = 30;
 		}
 		ParticlesComponent = module.default;
+		particlesLoaded = true;
 	});
 
 	let particlesConfig = {
@@ -95,8 +97,8 @@
 			<div id="gradient-div" class=" flex-none bg-gradient-to-t from-white to-[#ffffff00] w-full" />
 			<div class=" flex-grow bg-white" />
 		</div>
-		{#if showParticles}
-			<div class="absolute w-full h-full min-w-0 !overflow-hidden -z-50">
+		{#if showParticles && particlesLoaded}
+			<div class="absolute w-full h-full min-w-0 !overflow-hidden -z-50" transition:fade>
 				<svelte:component this={ParticlesComponent} id="tsparticles" options={particlesConfig} />
 			</div>
 		{/if}
