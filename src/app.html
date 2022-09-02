@@ -19,6 +19,29 @@
 
 			gtag('config', 'G-XP9H0JZYQ9');
 		</script>
+
+		<script>
+			// On page load or when changing themes, best to add inline in `head` to avoid FOUC
+			window.checkTheme = function () {
+				if (
+					localStorage.theme === 'dark' ||
+					((!('theme' in localStorage) || localStorage.theme === 'auto') &&
+						window.matchMedia('(prefers-color-scheme: dark)').matches)
+				) {
+					document.documentElement.classList.add('dark');
+					document.querySelector('meta[name="theme-color"]').setAttribute('content', '#2e2e32');
+				} else {
+					document.documentElement.classList.remove('dark');
+				}
+			};
+
+			// Check theme on page load
+			window.checkTheme();
+
+			// Check theme on theme change
+			const darkThemeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+			darkThemeMediaQuery.addListener(checkTheme);
+		</script>
 		%svelte.head%
 	</head>
 	<body>

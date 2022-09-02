@@ -25,6 +25,7 @@
 
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
+	import { actualTheme } from '$lib/theme';
 
 	let ParticlesComponent;
 
@@ -39,17 +40,22 @@
 		particlesLoaded = true;
 	});
 
-	let particlesConfig = {
+	const particleColors = {
+		light: '#182552',
+		dark: '#aaaaaa'
+	};
+
+	$: particlesConfig = {
 		particles: {
 			number: {
 				value: 100
 			},
 			color: {
-				value: '#182552'
+				value: particleColors[$actualTheme]
 			},
 			links: {
 				enable: true,
-				color: '#182552'
+				color: particleColors[$actualTheme]
 			},
 			move: {
 				enable: true,
@@ -93,8 +99,11 @@
 <div class="md:flex md:flex-row w-full max-w-screen-xl mx-auto h-29">
 	<div class="absolute top-0 left-0 w-screen -z-20 h-screen !overflow-hidden min-w-0">
 		<div class="absolute z-50 w-full h-screen flex flex-col">
-			<div id="gradient-div" class=" flex-none bg-gradient-to-t from-white to-[#ffffff00] w-full" />
-			<div class=" flex-grow bg-white" />
+			<div
+				id="gradient-div"
+				class=" flex-none bg-gradient-to-t from-white dark:from-gray-900 to-white/0 dark:to-gray-900/0 w-full"
+			/>
+			<div class=" flex-grow bg-white dark:bg-gray-900" />
 		</div>
 		{#if showParticles}
 			<div
@@ -134,7 +143,7 @@
 	</div>
 	{#if menuOpen}
 		<div
-			class="h-screen w-[90vw] bg-gray-100 z-50 fixed"
+			class="h-screen w-[90vw] bg-gray-100 dark:bg-gray-800 z-50 fixed"
 			transition:fly={{ delay: 250, duration: 100, x: -1 * window.innerWidth, y: 0, opacity: 0.5 }}
 		>
 			<div

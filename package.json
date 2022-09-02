@@ -41,6 +41,7 @@
 		"@tailwindcss/forms": "^0.4.0",
 		"@tailwindcss/line-clamp": "^0.3.0",
 		"prismic-dom": "^2.2.6",
+		"sass": "^1.54.8",
 		"svelte-particles": "^1.21.0"
 	}
 }

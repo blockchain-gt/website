@@ -3,9 +3,12 @@
 	export let sections: Result<SidebarSection>[];
 	import PrismicDOM from 'prismic-dom';
 	import linkResolver from './prismic/linkResolver';
+	import ThemeSwitcher from './ThemeSwitcher.svelte';
 
 	// Odd workaround because $page doesn't contain a `path`, only `url`
 	$: w = typeof window === 'undefined' ? null : window;
+
+	export let inSlideover = false;
 </script>
 
 <div class="w-full p-8 pt-16 m-4 max-h-[90vh] overflow-y-scroll">
@@ -18,7 +21,7 @@
 					sveltekit:prefetch
 					class="my-2 p-1.5 px-2.5 rounded-md block {w &&
 					PrismicDOM.Link.url(link.url, linkResolver) === w.location.pathname
-						? 'bg-gray-100'
+						? `bg-gray-100 ${inSlideover ? 'dark:bg-gray-900' : 'dark:bg-gray-800'}`
 						: ''}"
 					href={PrismicDOM.Link.url(link.url, linkResolver)}
 				>
@@ -27,4 +30,5 @@
 			{/each}
 		</div>
 	{/each}
+	<ThemeSwitcher />
 </div>
