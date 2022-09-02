@@ -3,7 +3,7 @@ const forms = require('@tailwindcss/forms');
 const lineClamp = require('@tailwindcss/line-clamp');
 const config = {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
-
+	darkMode: 'class',
 	theme: {
 		extend: {
 			boxShadow: {

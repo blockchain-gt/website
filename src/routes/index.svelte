@@ -75,7 +75,7 @@
 		<h2 class="page-subtitle">Our Course</h2>
 		<a href="/crypto-class-fall-2022">
 			<div
-				class="overflow-hidden mt-4 shadow-md hover:shadow-xl md:h-56 transition-all ml-4 duration-500 cursor-pointer rounded-lg flex flex-row max-w-screen-md"
+				class="overflow-hidden mt-4 shadow-md hover:shadow-xl dark:bg-gray-800 md:h-56 transition-shadow ml-4 duration-500 cursor-pointer rounded-lg flex flex-row max-w-screen-md"
 			>
 				<div class="image overflow-hidden w-60 flex-none hidden md:block object-cover">
 					<img src="/blockchain.jpg" class="object-cover h-full" alt="" />
@@ -92,7 +92,7 @@
 					<div class="my-8 md:my-0 hidden md:inline">
 						{#each tags as tag}
 							<span
-								class="p-2 px-4 bg-blue-100 text-blue-900 font-medium text-sm rounded-[4px] mr-2"
+								class="p-2 px-4 bg-blue-100 text-blue-900 dark:bg-gray-900 font-medium text-sm rounded-[4px] mr-2"
 							>
 								{tag}
 							</span>
