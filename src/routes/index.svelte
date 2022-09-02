@@ -22,8 +22,6 @@
 			eventsPromise
 		]);
 
-		console.log(events);
-
 		return {
 			props: {
 				pageResult: page,
@@ -46,8 +44,6 @@
 
 	export let newslettersResult: Result<Newsletter>[];
 	export let eventsResult: Result<Event>[];
-
-	console.log(eventsResult);
 </script>
 
 <div>

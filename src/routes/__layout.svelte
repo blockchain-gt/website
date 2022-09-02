@@ -24,7 +24,7 @@
 	export let sections: Result<SidebarSection>[];
 
 	import { onMount } from 'svelte';
-	import { fade, fly } from 'svelte/transition';
+	import { fly } from 'svelte/transition';
 
 	let ParticlesComponent;
 
@@ -64,7 +64,6 @@
 	$: {
 		if (typeof window !== 'undefined' && scrollY > 192) {
 			showParticles = false;
-			console.log('dont show');
 		} else showParticles = true;
 	}
 
@@ -97,8 +96,12 @@
 			<div id="gradient-div" class=" flex-none bg-gradient-to-t from-white to-[#ffffff00] w-full" />
 			<div class=" flex-grow bg-white" />
 		</div>
-		{#if showParticles && particlesLoaded}
-			<div class="absolute w-full h-full min-w-0 !overflow-hidden -z-50" transition:fade>
+		{#if showParticles}
+			<div
+				class="absolute w-full h-full min-w-0 !overflow-hidden -z-50 {particlesLoaded
+					? 'opacity-100'
+					: 'opacity-0'} transition-opacity duration-1000"
+			>
 				<svelte:component this={ParticlesComponent} id="tsparticles" options={particlesConfig} />
 			</div>
 		{/if}
