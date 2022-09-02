@@ -32,10 +32,10 @@
 			return opt.value === $theme;
 		}).svg;
 		if (typeof document !== 'undefined') {
-			console.log(document.getElementById('inner-svg'), svg);
-
-			document.getElementById('inner-svg').innerHTML = svg;
-			console.log(document.getElementById('inner-svg').innerHTML);
+			const el = document.getElementById('inner-svg');
+			if (el) {
+				el.innerHTML = svg;
+			}
 		}
 	};
 	$: {
