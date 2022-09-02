@@ -8,7 +8,8 @@
 	export const load = async ({ params }) => {
 		const pagePromise = Client.getSingle('home', {});
 		const newslettersPromise = Client.query(Prismic.Predicates.at('document.type', 'newsletter'), {
-			pageSize: 2
+			pageSize: 2,
+			orderings: '[document.first_publication_date desc]'
 		});
 		const eventsPromise = Client.query(Prismic.Predicates.at('document.type', 'event'), {
 			pageSize: 10,

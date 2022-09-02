@@ -9,7 +9,8 @@
 	export const load = async ({ params }) => {
 		const pagePromise = Client.getSingle('newsletter_home', {});
 		const newslettersPromise = Client.query(Prismic.Predicates.at('document.type', 'newsletter'), {
-			pageSize: 100
+			pageSize: 100,
+			orderings: '[document.first_publication_date desc]'
 		});
 
 		const [page, newsletters] = await Promise.all([pagePromise, newslettersPromise]);
@@ -24,6 +25,7 @@
 </script>
 
 <script lang="ts">
+	import { prerendering } from '$app/env';
 	import NewsletterPreview from '$lib/NewsletterPreview.svelte';
 
 	export let pageResult: Result<any>;
@@ -39,7 +41,7 @@
 		{@html PrismicDOM.RichText.asHtml(page.body)}
 	</div>
 	<div class="flex flex-wrap gap-8 ml-3">
-		{#each newsletters.slice(0, 8) as newsletter}
+		{#each newsletters.slice(0, 4) as newsletter}
 			<NewsletterPreview {newsletter} />
 		{/each}
 	</div>
@@ -49,9 +51,18 @@
 			<a
 				sveltekit:prefetch
 				href="/newsletters/{newsletter.uid}"
-				class="block antialiased underline text-gray-600 font-medium"
+				class="antialiased text-gray-600 font-medium flex justify-between"
 			>
-				{PrismicDOM.RichText.asText(newsletter.data.title)}
+				<span class="underline">
+					{PrismicDOM.RichText.asText(newsletter.data.title)}
+				</span>
+				<time class="opacity-50 no-underline">
+					{#if !prerendering}
+						{new Date(newsletter.data.date).toLocaleDateString(undefined, {
+							dateStyle: 'medium'
+						})}
+					{/if}
+				</time>
 			</a>
 		{/each}
 	</div>
