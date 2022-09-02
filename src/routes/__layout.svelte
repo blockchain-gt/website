@@ -119,7 +119,7 @@
 		<Sidebar {sections} />
 	</div>
 	<div
-		class="w-full absolute block md:hidden p-4 opacity-30"
+		class="w-full absolute block md:hidden p-4 opacity-30 dark:fill-white dark:opacity-90"
 		on:click={() => (menuOpen = !menuOpen)}
 	>
 		<svg
@@ -135,9 +135,9 @@
 			xml:space="preserve"
 		>
 			<g>
-				<rect x="0" y="40.84" style="fill:#010002;" width="283.426" height="42.735" />
-				<rect x="0" y="117.282" style="fill:#010002;" width="283.426" height="42.735" />
-				<rect x="0" y="194.851" style="fill:#010002;" width="283.426" height="42.735" />
+				<rect x="0" y="40.84" style="" width="283.426" height="42.735" />
+				<rect x="0" y="117.282" style="" width="283.426" height="42.735" />
+				<rect x="0" y="194.851" style="" width="283.426" height="42.735" />
 			</g>
 		</svg>
 	</div>
