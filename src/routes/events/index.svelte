@@ -27,6 +27,8 @@
 <script lang="ts">
 	import type { Event } from '$lib/types/prismic';
 
+	import { prerendering } from '$app/env';
+
 	export let pageResult: Result<any>;
 	export let eventsResults: Result<Event>[];
 
@@ -57,9 +59,30 @@
 	<div class="past-events mt-2 mb-6">
 		<h2 class="page-subtitle">Past Events</h2>
 		<div class="flex flex-row flex-wrap gap-8 mt-4 mb-8">
-			{#each pastEvents.reverse() as pastEvent}
+			{#each pastEvents.reverse().slice(0, 6) as pastEvent}
 				<EventPreview event={pastEvent.data} uid={pastEvent.uid} />
 			{/each}
 		</div>
+	</div>
+	<h2 class="page-subtitle mt-16 mb-6">Archive</h2>
+	<div class="space-y-3">
+		{#each pastEvents.slice(6) as events}
+			<a
+				sveltekit:prefetch
+				href="/events/{events.uid}"
+				class="antialiased text-gray-600 font-medium flex justify-between"
+			>
+				<span class="underline">
+					{PrismicDOM.RichText.asText(events.data.title)}
+				</span>
+				<time class="opacity-50 no-underline">
+					{#if !prerendering}
+						{new Date(events.data.date).toLocaleDateString(undefined, {
+							dateStyle: 'medium'
+						})}
+					{/if}
+				</time>
+			</a>
+		{/each}
 	</div>
 </div>

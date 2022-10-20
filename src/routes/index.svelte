@@ -6,7 +6,11 @@
 	import Prismic from '@prismicio/client';
 
 	export const load = async ({ params }) => {
-		const pagePromise = Client.getSingle('home', {});
+		const pagePromise = Client.getSingle('home', {
+			fetchLinks:
+				'sponsors.name, sponsors.link, sponsors.image_light_mode, sponsors.image_dark_mode'
+		});
+
 		const newslettersPromise = Client.query(Prismic.Predicates.at('document.type', 'newsletter'), {
 			pageSize: 2,
 			orderings: '[document.first_publication_date desc]'
@@ -44,6 +48,8 @@
 
 	export let newslettersResult: Result<Newsletter>[];
 	export let eventsResult: Result<Event>[];
+	export let pageResult: Result<{ sponsors: any[] }>;
+	console.log(pageResult);
 </script>
 
 <div>
@@ -72,13 +78,13 @@
 		</div>
 	{/if}
 	<div class="mt-4 mb-8">
-		<h2 class="page-subtitle">Our Course</h2>
+		<h2 class="page-subtitle">Crypto 101 Course</h2>
 		<a href="/crypto-class-fall-2022">
 			<div
 				class="overflow-hidden mt-4 shadow-md hover:shadow-xl dark:bg-gray-800 md:h-56 transition-shadow ml-4 duration-500 cursor-pointer rounded-lg flex flex-row max-w-screen-md"
 			>
 				<div class="image overflow-hidden w-60 flex-none hidden md:block object-cover">
-					<img src="/blockchain.jpg" class="object-cover h-full" alt="" />
+					<img src="/logo-raw.jpeg" class="object-cover h-full" alt="" />
 				</div>
 				<div class="p-6 flex flex-col justify-between">
 					<div>
@@ -102,31 +108,27 @@
 			</div>
 		</a>
 	</div>
-	<!-- <div class="mt-4 mb-8">
-		<h2 class="page-subtitle">Our Services</h2>
-		<div class="grid grid-cols-2 gap-8 mt-4 mb-8">
-			<div
-				class="shadow-md p-8 rounded-lg hover:shadow-xl ease-in transition-shadow cursor-pointer"
-			>
-				<h3 class=" text-primary text-xl font-semibold mb-2">For Students</h3>
-				<p class=" leading-snug">
-					Our services lorem ipsum dolor sit amte lorem ipsum dolor sit amtelorem ipsum dolor sit
-					amtelorem ipsum dolor sit amte
-				</p>
-			</div>
-			<div
-				class="shadow-md p-8 rounded-lg hover:shadow-xl ease-in transition-shadow cursor-pointer"
-			>
-				<h3 class="text-primary text-xl font-semibold mb-2">For Companies</h3>
-				<p class="leading-snug">
-					Our services lorem ipsum dolor sit amte lorem ipsum dolor sit amtelorem ipsum dolor sit
-					amtelorem ipsum dolor sit amte
-				</p>
-			</div>
+	<div class="mt-4 mb-8">
+		<h2 class="page-subtitle">Partners</h2>
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-3">
+			{#each pageResult.data?.sponsors || [] as sponsor}
+				<a
+					class="flex flex-col items-center justify-center rounded-md dark:bg-gray-800 fun-shadow bg-white h-40"
+					href={sponsor.sponsor.data?.link.url}
+					target="_blank"
+				>
+					<img
+						src={sponsor.sponsor.data.image_light_mode?.url}
+						class="only-on-light-mode "
+						alt="Sponsor logo"
+					/>
+					<img
+						src={sponsor.sponsor.data.image_dark_mode?.url}
+						class="only-on-dark-mode "
+						alt="Sponsor logo"
+					/>
+				</a>
+			{/each}
 		</div>
-	</div> -->
-	<!-- <div class="mt-4 mb-8">
-		<h2 class="page-subtitle">Upcoming Events</h2>
-		<div class="flex flex-row flex-wrap space-x-8 mt-4 mb-8" />
-	</div> -->
+	</div>
 </div>

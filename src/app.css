@@ -41,3 +41,14 @@ canvas,
 .prose strong {
 	@apply text-primary dark:text-blue-300;
 }
+
+.only-on-dark-mode {
+	@apply dark:block hidden;
+}
+.only-on-light-mode {
+	@apply block dark:hidden;
+}
+
+.fun-shadow {
+	@apply shadow-lg hover:shadow-xl ease-in transition-shadow;
+}
