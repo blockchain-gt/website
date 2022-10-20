@@ -110,7 +110,7 @@
 	</div>
 	<div class="mt-4 mb-8">
 		<h2 class="page-subtitle">Partners</h2>
-		<div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-3">
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-3 ml-4">
 			{#each pageResult.data?.sponsors || [] as sponsor}
 				<a
 					class="flex flex-col items-center justify-center rounded-md dark:bg-gray-800 fun-shadow bg-white h-40"
