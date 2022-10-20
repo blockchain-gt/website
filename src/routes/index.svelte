@@ -91,7 +91,7 @@
 						<h4 class="font-semibold text-primary text-lg">Crypto Fundamentals Course</h4>
 						<p class="text-sm">
 							Interested in learning more about blockchain technology, crypto, and web3? Blockchain
-							at Georgia Tech has created a 8 week fundamentals course that will prepare you to
+							at Georgia Tech has created an 8 week fundamentals course that will prepare you to
 							start your crypto journey
 						</p>
 					</div>
